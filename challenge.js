@@ -1,4 +1,4 @@
-//Se configura el módulo readline
+// Se configura el módulo readline
 
 import readline from 'readline';
 
@@ -202,11 +202,32 @@ case 13:
 case 14:
     // Se añade una nota (0-10) de forma aleatroria a cada alumno
     
-    let randomExamscore = Math.floor(Math.random() * 10) + 1;
-    let randomAddedExamScore = students.examScores.push([randomExamscore]);
-    console.table(students);
-  }
+    function calculateRandomScore(min, max) {
+    const randomScore = Math.floor(Math.random() * (max - min + 1)) + min;
+    return randomNumber;
+    };
 
+    // Tengo que conseguir insertar el valor random obtenido como valor de la key score
+    
+case 15: 
+    // Se ordenan los alumnos alfabéticamente
+
+    students.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    
+    console.log("Tabla actualizada por orden alfabético: ")
+    console.table(students);
+
+    // Tarea pendiente: corregir uppercase/lowercase ya que el sort no los iguala
+  }
+  
   // En caso de que el usuario pulse el 0 o un número no contemplado, la aplicación terminará
 
 } while (optionFromUser >= 1 && optionFromUser <= 18)
