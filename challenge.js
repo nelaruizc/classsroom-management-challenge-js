@@ -171,7 +171,37 @@ async function showOptions() {
 
         case 10:
           // Se añade un nuevo alumno con los datos facilitados
-        
+
+            // Primero se elige un género de forma aleatoria
+            let selectGender = availableGenders[Math.floor(Math.random() * availableGenders.length)]; 
+
+            let randomFemaleName = availableFemaleNames[Math.floor(Math.random() * availableFemaleNames.length)];
+            let randomMaleName = availableMaleNames[Math.floor(Math.random() * availableMaleNames.length)];
+
+            let selectName = undefined;
+
+            // Se crea una condición para que se asigne el nombre según el género
+
+            if (selectGender === 'female') {
+                selectName = randomFemaleName
+            } else {
+                selectName = randomMaleName
+            }
+
+            // Se establece el min y max de edad
+
+            const min = 20
+            const max = 50
+
+            // Se elige una edad de forma aleatória
+            
+            let randomAge = Math.floor(Math.random() * (max - min) + min);
+          
+            students.push({age: randomAge, name: selectName, gender: selectGender, examScores: []})
+  
+        console.table(students)
+        break;
+
         case 11:
           // Se muestra por consola el nombre del alumno más jóven
 
